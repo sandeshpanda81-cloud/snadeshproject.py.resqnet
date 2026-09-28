@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India ResQNet | Disaster Command Center</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="app-shell">
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">R</div>
+            <div>
+                <h1>ResQNet</h1>
+                <span>AI RESPONSE NETWORK</span>
+            </div>
+        </div>
+
+        <nav>
+            <a class="active" href="#dashboard">⌂ <span>Command Center</span></a>
+            <a href="#map">◉ <span>Situation Map</span></a>
+            <a href="#incidents">⚠ <span>Incidents</span></a>
+            <a href="#resources">▣ <span>Resources</span></a>
+            <a href="#ai">✦ <span>AI Intelligence</span></a>
+        </nav>
+
+        <div class="system-card">
+            <div class="live-dot"></div>
+            <div>
+                <strong>System Online</strong>
+                <small>All services operational</small>
+            </div>
+        </div>
+
+        <div class="sidebar-footer">INDIA RESQNET v1.0<br>Disaster Intelligence Platform</div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">NATIONAL DISASTER RESPONSE</p>
+                <h2>Command Center</h2>
+            </div>
+            <div class="top-actions">
+                <div class="status-pill"><i></i> LIVE MONITORING</div>
+                <button class="profile">DR <span>Response Admin</span></button>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div>
+                <p class="eyebrow">AI-POWERED SITUATIONAL AWARENESS</p>
+                <h3>Detect. Decide. Deploy.</h3>
+                <p>Turn fragmented emergency data into coordinated rescue decisions.</p>
+            </div>
+            <div class="hero-actions">
+                <button class="btn primary" onclick="simulateDisaster()">⚡ Simulate Disaster</button>
+                <button class="btn secondary" onclick="resetDashboard()">Reset</button>
+            </div>
+        </section>
+
+        <section class="stats-grid" id="dashboard">
+            <div class="stat-card">
+                <span class="stat-label">ACTIVE INCIDENTS</span>
+                <strong id="incidents">47</strong>
+                <small class="up">● Monitoring live reports</small>
+            </div>
+            <div class="stat-card danger">
+                <span class="stat-label">CRITICAL CASES</span>
+                <strong id="critical">12</strong>
+                <small>Require immediate response</small>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">AMBULANCES READY</span>
+                <strong id="ambulances">12</strong>
+                <small>Medical transport units</small>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">RESCUE TEAMS</span>
+                <strong id="teams">8</strong>
+                <small>Field units available</small>
+            </div>
+        </section>
+
+        <section class="content-grid">
+            <div class="panel map-panel" id="map">
+                <div class="panel-head">
+                    <div>
+                        <span class="section-kicker">GEOSPATIAL INTELLIGENCE</span>
+                        <h3>Live Situation Map</h3>
+                    </div>
+                    <span class="risk-badge" id="riskBadge">● HIGH RISK</span>
+                </div>
+
+                <div class="map">
+                    <div class="map-grid"></div>
+                    <div class="road r1"></div>
+                    <div class="road r2"></div>
+                    <div class="road r3"></div>
+                    <div class="zone zone-a"><span>ZONE A</span><b>CRITICAL</b></div>
+                    <div class="zone zone-b"><span>ZONE B</span><b>HIGH</b></div>
+                    <div class="zone zone-c"><span>ZONE C</span><b>MEDIUM</b></div>
+                    <div class="zone zone-d"><span>ZONE D</span><b>LOW</b></div>
+                    <div class="map-pin pin1">🚑</div>
+                    <div class="map-pin pin2">🚒</div>
+                    <div class="map-pin pin3">🏥</div>
+                    <div class="map-label label1">Rescue Team 03</div>
+                    <div class="map-label label2">Hospital X</div>
+                    <div class="map-legend">
+                        <span><i class="dot critical"></i>Critical</span>
+                        <span><i class="dot high"></i>High</span>
+                        <span><i class="dot medium"></i>Medium</span>
+                        <span><i class="dot unit"></i>Response Unit</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel ai-panel" id="ai">
+                <div class="panel-head">
+                    <div>
+                        <span class="section-kicker">MULTI-AGENT AI</span>
+                        <h3>AI Intelligence</h3>
+                    </div>
+                    <span class="ai-chip">AI ACTIVE</span>
+                </div>
+
+                <div class="ai-score">
+                    <div class="score-ring"><strong id="score">86</strong><span>RISK</span></div>
+                    <div>
+                        <strong id="riskText">High-risk flood event</strong>
+                        <p>AI confidence: <b>94%</b></p>
+                    </div>
+                </div>
+
+                <div class="recommendation">
+                    <div class="rec-icon">✦</div>
+                    <div>
+                        <span>AI RECOMMENDATION</span>
+                        <p id="recommendation">Deploy Rescue Team #03 to Zone A. Route C is currently the safest available route.</p>
+                    </div>
+                </div>
+
+                <div class="agent-list">
+                    <div><span>◉ Disaster Agent</span><b>Analyzed</b></div>
+                    <div><span>◉ GIS Agent</span><b>Mapping</b></div>
+                    <div><span>◉ Resource Agent</span><b>Optimizing</b></div>
+                    <div><span>◉ Route Agent</span><b>Routing</b></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bottom-grid">
+            <div class="panel" id="incidents">
+                <div class="panel-head">
+                    <div>
+                        <span class="section-kicker">PRIORITY QUEUE</span>
+                        <h3>Emergency Incidents</h3>
+                    </div>
+                    <button class="view-btn">View all →</button>
+                </div>
+                <div class="incident-list">
+                    <div class="incident critical-row">
+                        <span class="incident-id">#INC-024</span>
+                        <div><b>5 people trapped</b><small>Zone A · Water level 1.8m</small></div>
+                        <span class="priority critical-text">CRITICAL</span>
+                    </div>
+                    <div class="incident">
+                        <span class="incident-id">#INC-031</span>
+                        <div><b>Medical evacuation</b><small>Zone B · Elderly patient</small></div>
+                        <span class="priority high-text">HIGH</span>
+                    </div>
+                    <div class="incident">
+                        <span class="incident-id">#INC-017</span>
+                        <div><b>Road blockage</b><small>Route B · Heavy flooding</small></div>
+                        <span class="priority high-text">HIGH</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel" id="resources">
+                <div class="panel-head">
+                    <div>
+                        <span class="section-kicker">RESOURCE CONTROL</span>
+                        <h3>Resource Availability</h3>
+                    </div>
+                </div>
+                <div class="resource">
+                    <div><span>Medical Kits</span><b id="kits">35 / 50</b></div>
+                    <div class="progress"><i style="width:70%"></i></div>
+                </div>
+                <div class="resource">
+                    <div><span>Shelter Capacity</span><b id="shelter">420 / 500</b></div>
+                    <div class="progress"><i style="width:84%"></i></div>
+                </div>
+                <div class="resource">
+                    <div><span>Ambulance Fleet</span><b>12 / 15</b></div>
+                    <div class="progress"><i style="width:80%"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <span>India ResQNet · AI-Powered Disaster Response</span>
+            <span id="lastUpdated">Last updated: just now</span>
+        </footer>
+    </main>
+</div>
+
+<div class="toast" id="toast">AI analysis completed.</div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
